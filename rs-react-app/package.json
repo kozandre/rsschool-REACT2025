@@ -9,7 +9,13 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
-    "prepare": "husky && chmod ug+x .husky/*"
+    "prepare": "cd .. && husky install rs-react-app/.husky*"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint"
+    ]
   },
   "dependencies": {
     "react": "^19.1.0",
