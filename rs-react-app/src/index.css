@@ -39,6 +39,15 @@ h6 {
   margin: 0;
 }
 
+ul {
+  padding: 0;
+}
+
+p,
+ul {
+  margin: 0;
+}
+
 h2 {
   margin-bottom: 10px;
 }

@@ -1,10 +1,11 @@
 .resultItem {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   column-gap: 60px;
+  border-bottom: 2px solid #747bff;
 }
 
 .itemDescription {
   display: flex;
-  column-gap: 10px;
+  column-gap: 20px;
 }

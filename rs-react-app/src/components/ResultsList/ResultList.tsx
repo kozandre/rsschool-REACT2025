@@ -7,11 +7,11 @@ class ResultList extends Component<ResultListProps> {
   render() {
     return (
       <section>
-        <div className={classes.resultListLegend}>
-          <span>Item name</span>
-          <span>Item description</span>
-        </div>
-        <div className={classes.resultList}>
+        <ul className={classes.resultList}>
+          <li className={classes.resultListLegend}>
+            <span>Item name</span>
+            <span>Item description</span>
+          </li>
           {this.props.items.map((character) => (
             <ResultItem
               key={character.uid}
@@ -24,7 +24,7 @@ class ResultList extends Component<ResultListProps> {
               yearOfDeath={character.yearOfDeath || 'Unknown'}
             />
           ))}
-        </div>
+        </ul>
       </section>
     );
   }
