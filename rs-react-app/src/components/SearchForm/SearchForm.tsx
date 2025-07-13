@@ -7,17 +7,49 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
     super(props);
 
     this.state = {
-      value: '',
+      value: this.getSavedSearchTerm(),
       isLoading: false,
       error: null,
     };
   }
 
+  componentDidMount() {
+    if (this.state.value) {
+      this.handleSearch(this.state.value);
+    } else {
+      this.handleSearch('');
+    }
+  }
+
+  getSavedSearchTerm = (): string => {
+    try {
+      return localStorage.getItem('searchTerm') || '';
+    } catch (error) {
+      console.error('Error accessing localStorage:', error);
+      return '';
+    }
+  };
+
+  saveSearchTerm = (term: string) => {
+    try {
+      localStorage.setItem('searchTerm', term.trim());
+    } catch (error) {
+      console.error('Error saving to localStorage:', error);
+    }
+  };
+
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ value: event.target.value });
   };
 
-  searchCharacters = async (searchParams: URLSearchParams) => {
+  searchCharacters = async (searchTerm: string) => {
+    const searchParams = new URLSearchParams();
+    if (searchTerm.trim()) {
+      searchParams.append('name', searchTerm.trim());
+    }
+    searchParams.append('pageSize', '20');
+    searchParams.append('sort', 'name,ASC');
+
     try {
       const response = await fetch(
         'https://stapi.co/api/v1/rest/character/search',
@@ -35,7 +67,6 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
       }
 
       const data = await response.json();
-      console.log(data.characters);
       return data.characters || [];
     } catch (error) {
       console.error('Search error:', error);
@@ -43,24 +74,11 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
     }
   };
 
-  handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const { value } = this.state;
-
-    if (!value.trim()) {
-      this.setState({ error: 'Please enter a character name' });
-      return;
-    }
-
+  handleSearch = async (searchTerm: string) => {
     this.setState({ isLoading: true, error: null });
 
     try {
-      const searchParams = new URLSearchParams();
-      searchParams.append('name', value);
-      searchParams.append('pageSize', '20');
-      searchParams.append('sort', 'name,ASC');
-
-      const characters = await this.searchCharacters(searchParams);
+      const characters = await this.searchCharacters(searchTerm);
 
       if (characters.length === 0) {
         this.setState({ error: 'No characters found. Try a different name.' });
@@ -74,6 +92,13 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
     } finally {
       this.setState({ isLoading: false });
     }
+  };
+
+  handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const processedTerm = this.state.value.trim();
+    this.saveSearchTerm(processedTerm);
+    await this.handleSearch(processedTerm);
   };
 
   render() {
