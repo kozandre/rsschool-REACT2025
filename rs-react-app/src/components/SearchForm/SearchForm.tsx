@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import classes from './SearchForm.module.scss';
 import type { SearchFormProps, SearchFormState } from '../../types';
+import Spinner from '../Spinner/Spinner';
 
 class SearchForm extends Component<SearchFormProps, SearchFormState> {
   constructor(props: SearchFormProps) {
@@ -104,7 +105,9 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
   render() {
     const { value, isLoading, error } = this.state;
 
-    return (
+    return isLoading ? (
+      <Spinner />
+    ) : (
       <form className={classes.form} onSubmit={this.handleSubmit}>
         <label>
           Search:
@@ -121,7 +124,7 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
           value={isLoading ? 'Searching...' : 'Search'}
           disabled={isLoading}
         />
-        {error && <div className={classes.error}>{error}</div>}
+        {error && <p>{error}</p>}
       </form>
     );
   }
