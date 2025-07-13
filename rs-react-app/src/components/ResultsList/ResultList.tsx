@@ -15,8 +15,13 @@ class ResultList extends Component<ResultListProps> {
           {this.props.items.map((character) => (
             <ResultItem
               key={character.uid}
-              name={character.name || 'Nameless'}
-              description={character.species || 'Unknown'}
+              name={character.name}
+              gender={character.gender || 'Unknown'}
+              maritalStatus={character.maritalStatus || 'Unknown'}
+              monthOfBirth={character.monthOfBirth || 'Unknown'}
+              yearOfBirth={character.yearOfBirth || 'Unknown'}
+              monthOfDeath={character.monthOfDeath || 'Unknown'}
+              yearOfDeath={character.yearOfDeath || 'Unknown'}
             />
           ))}
         </div>

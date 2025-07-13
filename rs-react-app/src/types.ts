@@ -1,8 +1,5 @@
-export interface Character {
+export interface Character extends ResultItemProps {
   uid: string;
-  name: string;
-  gender?: string;
-  species?: string;
 }
 
 export interface SearchFormProps {
@@ -17,7 +14,12 @@ export interface SearchFormState {
 
 export interface ResultItemProps {
   name: string;
-  description: string;
+  gender: string | null;
+  maritalStatus: string | string;
+  monthOfBirth: number | string;
+  monthOfDeath: number | string;
+  yearOfBirth: number | string;
+  yearOfDeath: number | string;
 }
 
 export interface SearchPanelProps {
