@@ -1,7 +1,18 @@
-export interface SearchFormProps {}
+export interface Character {
+  uid: string;
+  name: string;
+  gender?: string;
+  species?: string;
+}
+
+export interface SearchFormProps {
+  onSearch: (results: Character[]) => void;
+}
 
 export interface SearchFormState {
   value: string;
+  isLoading: boolean;
+  error: string | null;
 }
 
 interface ResultItem {
