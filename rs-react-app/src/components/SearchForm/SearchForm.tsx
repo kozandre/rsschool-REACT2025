@@ -110,16 +110,16 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
       <Spinner />
     ) : (
       <form className={classes.form} onSubmit={this.handleSubmit}>
-        <label>
-          Search:
-          <input
-            type="text"
-            value={value}
-            onChange={this.handleChange}
-            placeholder="Spock, Picard...."
-            disabled={isLoading}
-          />
-        </label>
+        <label htmlFor="search">Search:</label>
+        <input
+          id="search"
+          name="search"
+          type="text"
+          value={value}
+          onChange={this.handleChange}
+          placeholder="Spock, Picard...."
+          disabled={isLoading}
+        />
         <input type="submit" value="Search" disabled={isLoading} />
         {error && <p>{error}</p>}
       </form>
