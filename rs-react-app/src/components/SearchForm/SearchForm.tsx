@@ -90,6 +90,7 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
       this.setState({
         error: 'Failed to search characters. Please try again.',
       });
+      throw error;
     } finally {
       this.setState({ isLoading: false });
     }
