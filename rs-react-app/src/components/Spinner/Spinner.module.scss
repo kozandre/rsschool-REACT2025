@@ -4,7 +4,13 @@
   align-items: center;
   position: absolute;
   inset: 0;
-  background-color: #242424;
+  background-color: var(--bg-color);
+}
+
+@media (prefers-color-scheme: light) {
+  .spinnerWrapper {
+    background-color: #fff;
+  }
 }
 
 .reactLogo {
