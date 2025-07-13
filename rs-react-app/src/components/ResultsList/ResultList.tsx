@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import classes from './ResultList.module.scss';
-import ResultItem from '../ResultItem/ResultItem';
+import classes from './ResultsList.module.scss';
+import ResultItem from '../ResultsItem/ResultsItem';
 import type { ResultListProps } from '../../types';
 
 class ResultList extends Component<ResultListProps> {
@@ -12,11 +12,11 @@ class ResultList extends Component<ResultListProps> {
           <span>Item description</span>
         </div>
         <div className={classes.resultList}>
-          {this.props.items.map((item, index) => (
+          {this.props.items.map((character) => (
             <ResultItem
-              key={index}
-              name={item.name}
-              description={item.description}
+              key={character.uid}
+              name={character.name || 'Nameless'}
+              description={character.species || 'Unknown'}
             />
           ))}
         </div>

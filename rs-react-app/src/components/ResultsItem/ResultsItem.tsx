@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import type { ResultItemProps } from '../../types';
-import classes from './ResultItem.module.scss';
+import classes from './ResultsItem.module.scss';
 
 class ResultItem extends Component<ResultItemProps> {
   render() {

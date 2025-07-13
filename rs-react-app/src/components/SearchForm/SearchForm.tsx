@@ -55,7 +55,7 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
     return (
       <form className={classes.form} onSubmit={this.handleSubmit}>
         <label>
-          Search Star Trek characters:
+          Search:
           <input
             type="text"
             value={value}

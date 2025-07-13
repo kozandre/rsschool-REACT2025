@@ -15,16 +15,19 @@ export interface SearchFormState {
   error: string | null;
 }
 
-interface ResultItem {
-  name: string;
-  description: string;
-}
-
-export interface ResultListProps {
-  items: ResultItem[];
-}
-
 export interface ResultItemProps {
   name: string;
   description: string;
+}
+
+export interface SearchPanelProps {
+  onSearch: (characters: Character[]) => void;
+}
+
+export interface ResultListProps {
+  items: Character[];
+}
+
+export interface ResultsProps {
+  characters: Character[];
 }
