@@ -6,7 +6,7 @@ class ErrorButton extends Component {
     shouldThrow: false,
   };
 
-  errorHandler = () => {
+  errorHandler = (): void => {
     this.setState({ shouldThrow: true });
   };
 

@@ -14,7 +14,7 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
     };
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     if (this.state.value) {
       this.handleSearch(this.state.value);
     } else {
@@ -31,7 +31,7 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
     }
   };
 
-  saveSearchTerm = (term: string) => {
+  saveSearchTerm = (term: string): void => {
     try {
       localStorage.setItem('searchTerm', term.trim());
     } catch (error) {
@@ -39,7 +39,7 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
     }
   };
 
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({ value: event.target.value });
   };
 

@@ -10,7 +10,7 @@ class App extends Component {
     characters: [] as Character[],
   };
 
-  handleSearchResults = (characters: Character[]) => {
+  handleSearchResults = (characters: Character[]): void => {
     this.setState({ characters });
   };
 
