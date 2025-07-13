@@ -1,3 +1,5 @@
+import { type ErrorInfo, type ReactNode } from 'react';
+
 export interface Character extends ResultItemProps {
   uid: string;
 }
@@ -32,4 +34,14 @@ export interface ResultListProps {
 
 export interface ResultsProps {
   characters: Character[];
+}
+
+export interface ErrorBoundaryProps {
+  children: ReactNode;
+}
+
+export interface ErrorBoundaryState {
+  hasError: boolean;
+  error?: Error;
+  errorInfo?: ErrorInfo;
 }

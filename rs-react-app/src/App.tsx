@@ -3,6 +3,7 @@ import './App.css';
 import SearchPanel from './components/SearchPanel/SearchPanel';
 import Results from './components/Results/Results';
 import type { Character } from './types';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   state = {
@@ -16,8 +17,10 @@ class App extends Component {
   render() {
     return (
       <div className="app-container">
-        <SearchPanel onSearch={this.handleSearchResults} />
-        <Results characters={this.state.characters} />
+        <ErrorBoundary>
+          <SearchPanel onSearch={this.handleSearchResults} />
+          <Results characters={this.state.characters} />
+        </ErrorBoundary>
       </div>
     );
   }
