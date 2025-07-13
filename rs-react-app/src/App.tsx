@@ -1,9 +1,16 @@
 import { Component } from 'react';
 import './App.css';
+import SearchPanel from './components/SearchPanel/SearchPanel';
+import ResultList from './components/ResultList/ResultList';
 
 class App extends Component {
   render() {
-    return <h1>Hello</h1>;
+    return (
+      <div className="app-container">
+        <SearchPanel />
+        <ResultList />
+      </div>
+    );
   }
 }
 
