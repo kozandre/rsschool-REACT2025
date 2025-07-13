@@ -1,4 +1,2 @@
-# .husky/pre-commit
-
-cd rs-react-app
-npx lint-staged
+#!/usr/bin/env sh
+. "$(dirname "$0")/h"ged

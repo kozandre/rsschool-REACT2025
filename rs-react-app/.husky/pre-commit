@@ -1,0 +1,4 @@
+# .husky/pre-commit
+
+cd rs-react-app
+npx lint-staged
