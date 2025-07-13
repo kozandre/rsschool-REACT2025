@@ -9,14 +9,13 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "format:fix": "prettier --write .",
-    "prepare": "cd .. && husky install rs-react-app/.husky*"
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "prettify": "npm run format:fix && npm run lint:fix",
+    "prepare": "cd .. && husky rs-react-app/.husky"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --write",
-      "eslint"
-    ]
+    "src/**/*.{tsx, ts}": "npm run prettify"
   },
   "dependencies": {
     "react": "^19.1.0",
