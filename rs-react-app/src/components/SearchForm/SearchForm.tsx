@@ -120,11 +120,7 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
             disabled={isLoading}
           />
         </label>
-        <input
-          type="submit"
-          value={isLoading ? 'Searching...' : 'Search'}
-          disabled={isLoading}
-        />
+        <input type="submit" value="Search" disabled={isLoading} />
         {error && <p>{error}</p>}
       </form>
     );
