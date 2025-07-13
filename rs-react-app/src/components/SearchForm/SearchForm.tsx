@@ -92,7 +92,9 @@ class SearchForm extends Component<SearchFormProps, SearchFormState> {
       });
       throw error;
     } finally {
-      this.setState({ isLoading: false });
+      setTimeout(() => {
+        this.setState({ isLoading: false });
+      }, 500);
     }
   };
 
