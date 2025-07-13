@@ -1,0 +1,22 @@
+.errorFallback {
+  padding: 20px;
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  margin: 20px;
+  color: tomato;
+}
+
+.errorFallback details {
+  white-space: pre-wrap;
+}
+
+.errorFallback button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: tomato;
+}
+
+.errorFallback button:hover {
+  background: #b71c1c;
+}
